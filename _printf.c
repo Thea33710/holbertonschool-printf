@@ -9,8 +9,8 @@
  * Return: le nombre total de caracteres imprimes
  */
 
- int _printf(const char *format, ...)
- {
+int _printf(const char *format, ...)
+{
 	va_list args;
 	int nb_char_printed = 0, nb_char = 0, i, j = 0;
 
@@ -34,4 +34,4 @@
 	write(1, &format[j], nb_char);
 	va_end(args);
 	return (nb_char_printed);
- }
+}
