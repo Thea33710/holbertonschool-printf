@@ -3,10 +3,16 @@
 
 #include <stdarg.h>
 
+/**
+ * struct spe - Structure specifieur
+ * @specifier: le specifieur
+ * @f: la fonction associee
+ */
+
 typedef struct spe
 {
-  char specifier;
-  int (*f)(va_list *);
+	char specifier;
+	int (*f)(va_list *);
 } spe_t;
 
 int _printf(const char *format, ...);
