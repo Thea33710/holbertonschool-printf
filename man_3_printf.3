@@ -1,0 +1,65 @@
+.TH _PRINTF 3 "Juillet 2025" "1.0" "Projet: C - printf"
+.SH NOM
+_printf \- Affiche une chaine de caracteres
+
+.SH SYNOPSIS
+.B #include <stdio.h>
+
+
+.BI "int _printf(const char " *format ", " ...);
+
+.SH DESCRIPTION
+La fonction
+.B _printf()
+produit une sortie selon un
+.I format
+decrit plus loin. Elle ecrit sur la sortie standard
+.I stdout
+et renvoie le nombre de caracteres affiches.
+
+.SH SPECIFICATEURS DE CONVERSION
+Un caractere qui specifie le type de conversion a faire.
+
+.TP
+.B c
+L'argument
+.I int
+est converti en
+.I unsigned char
+et est ecrit.
+
+.TP
+.B s
+L'argument
+.I const char *
+est un pointeur vers un tableau de caracteres (pointeur vers une chaine). Les caracteres du tableau sont ecrit jusqu'a un octet nul de terminaison ('\0') exclu.
+
+.TP
+.B %
+Un '%' est ecrit. Aucun argument n'est converti.
+
+.TP
+.B d , i
+L'argument
+.I int
+est converti en notation decimale signee.
+
+.SH VALEUR DE RETOUR
+Cette fonction renvoie le nombre d'octets imprime sans l'octet nul. Si une erreur de sortie est rencontree, une  valeur negative est renvoyee.
+
+.SH EXEMPLE
+.nf
+#include <stdio.h>
+
+int main()
+{
+    _printf("String:%s\n", "I am a string !");
+    return (0);
+}
+.fi
+
+.SH AUTEURS
+Thea Prolongeau et Gregorie Sala
+
+.SH VOIR AUSSI
+.BR printf (3)
