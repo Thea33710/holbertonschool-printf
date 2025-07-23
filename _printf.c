@@ -34,11 +34,24 @@ int _printf(const char *format, ...)
 			{
 				return (-1);
 			}
-			i++;
-			write(1, &format[j], nb_char);
-			nb_char_printed += get_specifier_func(format[i])(&args);
-			j = i + 1;
-			nb_char = 0;
+			if (format[i + 1] == 'c' || format[i + 1] == 's' || format[i + 1] == '%')
+			{
+				i++;
+				write(1, &format[j], nb_char);
+				nb_char_printed += get_specifier_func(format[i])(&args);
+				j = i + 1;
+				nb_char = 0;
+			}
+			else
+			{
+				write(1,&format[j], nb_char);
+				write(1, "%", 1);
+				write(1, &format[i + 1], 1);
+				nb_char_printed += nb_char + 2;
+				i++;
+				j = i + 1;
+				nb_char = 0;
+			}
 		}
 		else
 		{
