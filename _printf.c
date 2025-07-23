@@ -15,39 +15,30 @@ int _printf(const char *format, ...)
 	int nb_char_printed = 0, nb_char = 0, i, j = 0;
 
 	va_start(args, format);
-
 	if (format[0] == '\0')
-	{
 		return (0);
-	}
 
 	if (format == NULL)
-	{
 		return (-1);
-	}
 
 	for (i = 0; format[i] != '\0'; i++)
 	{
 		if (format[i] == '%')
 		{
 			if (format[i + 1] == '\0')
-			{
 				return (-1);
-			}
+
+			write(1, &format[j], nb_char);
 			if (format[i + 1] == 'c' || format[i + 1] == 's' || format[i + 1] == '%')
-			{
-				i++;
-				write(1, &format[j], nb_char);
-				nb_char_printed += get_specifier_func(format[i])(&args);
-			}
+				nb_char_printed += get_specifier_func(format[i + 1])(&args);
+
 			else
 			{
-				write(1, &format[j], nb_char);
 				write(1, "%", 1);
 				write(1, &format[i + 1], 1);
 				nb_char_printed += nb_char + 2;
-				i++;
 			}
+			i++;
 			j = i + 1;
 			nb_char = 0;
 		}
@@ -57,7 +48,6 @@ int _printf(const char *format, ...)
 			nb_char++;
 		}
 	}
-
 	write(1, &format[j], nb_char);
 	va_end(args);
 	return (nb_char_printed);
