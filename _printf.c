@@ -40,8 +40,10 @@ int _printf(const char *format, ...)
 			j = i + 1;
 			nb_char = 0;
 		}
-
-		nb_char_printed++;
+		else
+		{
+			nb_char_printed++;
+		}
 		nb_char++;
 	}
 
