@@ -43,8 +43,8 @@ int _printf(const char *format, ...)
 		else
 		{
 			nb_char_printed++;
+			nb_char++;
 		}
-		nb_char++;
 	}
 
 	write(1, &format[j], nb_char);
