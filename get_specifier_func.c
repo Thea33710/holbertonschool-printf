@@ -9,18 +9,18 @@
 
 int (*get_specifier_func(char c))(va_list *)
 {
-	spe_t spec[] = {
-	{ 's', _string },
-	{ 'c', _char },
-	{ '%', _percentage },
-	{ 'd', _int },
-	{ 'i', _int },
-	{ '\0', NULL }
-	};
+  spe_t spec[] = {
+  {'c', _char},
+  {'s', _string},
+  {'%', _percentage},
+	{'d', _int},
+	{'i', _int},
+  {'\0', NULL}
+};
 
-	int i = 0;
+int i = 0;
 
-  /*Boucle tant qu'on n'est pas a la fin du tableau*/
+/*Boucle tant qu'on n'est pas a la fin du tableau*/
 
 	while (spec[i].specifier != '\0')
 	{
