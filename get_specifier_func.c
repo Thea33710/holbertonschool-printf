@@ -13,6 +13,8 @@ int (*get_specifier_func(char c))(va_list *)
 	{ 's', _string },
 	{ 'c', _char },
 	{ '%', _percentage },
+	{ 'd', _int },
+	{ 'i', _int },
 	{ '\0', NULL }
 	};
 
