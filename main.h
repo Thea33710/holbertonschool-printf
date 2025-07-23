@@ -20,5 +20,6 @@ int (*get_specifier_func(char c))(va_list *);
 int _char(va_list *arg);
 int _string(va_list *arg);
 int _percentage(va_list *arg);
+int _int(va_list, *arg);
 
 #endif
