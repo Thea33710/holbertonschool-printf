@@ -16,10 +16,24 @@ int _printf(const char *format, ...)
 
 	va_start(args, format);
 
+	if (format[0] == '\0')
+	{
+		return (0);
+	}
+
+	if (format == NULL)
+	{
+		return (-1);
+	}
+
 	for (i = 0; format[i] != '\0'; i++)
 	{
 		if (format[i] == '%')
 		{
+			if (format[i + 1] == '\0')
+			{
+				return (-1);
+			}
 			i++;
 			write(1, &format[j], nb_char);
 			nb_char_printed += get_specifier_func(format[i])(&args);
