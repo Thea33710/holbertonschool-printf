@@ -15,7 +15,7 @@ int _string(va_list *args)
 
 	if (s == NULL)
 	{
-		return (0);
+		s = "(null)";
 	}
 
 	while (s[i] != '\0')
