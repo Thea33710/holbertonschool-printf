@@ -54,3 +54,48 @@ int _percentage(va_list *args __attribute__((unused)))
 	write(1, &c, 1);
 	return (1);
 }
+
+/**
+ * _int - affiche un entier en base 10
+ * @args: Liste d'arguments contenant la chaine a afficher
+ * Return: La longueur de la chaine affichee
+ */
+
+int _int(va_list *args)
+{
+	int y = va_arg(*args, int);
+	int i = 0, j, k = 0;
+	char s[12];
+
+	if (y == 0)
+	{
+		char c = '0';
+
+		write(1, &c, 1);
+		return (1);
+	}
+
+	if (y < 0)
+	{
+		char minus = '-';
+
+		write(1, &minus, 1);
+		k++;
+		y = y * (-1);
+	}
+
+	while (y > 0)
+	{
+		s[i] = (y % 10) + '0';
+		y = y / 10;
+		i++;
+	}
+
+	for (j = (i - 1); j >= 0; j--)
+	{
+		write(1, &s[j], 1);
+		k++;
+	}
+
+	return (k);
+}

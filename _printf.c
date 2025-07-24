@@ -4,6 +4,17 @@
 #include "main.h"
 
 /**
+ * is_valid - Affiche dans la sortie standard les arguments donnes
+ * @c: le caractere a verifier
+ * Return: si le caractere est valide ou pas
+ */
+
+int is_valid(char c)
+{
+	return (c == 'c' || c == 's' || c == '%' || c == 'd' || c == 'i');
+}
+
+/**
  * _printf - Affiche dans la sortie standard les arguments donnes
  * @format: chaine de caracteres composee d'aucune ou plusieurs directive(s)
  * Return: le nombre total de caracteres imprimes
@@ -29,7 +40,7 @@ int _printf(const char *format, ...)
 				return (-1);
 
 			write(1, &format[j], nb_char);
-			if (format[i + 1] == 'c' || format[i + 1] == 's' || format[i + 1] == '%')
+			if (is_valid(format[i + 1]))
 				nb_char_printed += get_specifier_func(format[i + 1])(&args);
 
 			else
