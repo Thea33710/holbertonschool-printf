@@ -65,29 +65,30 @@ int _int(va_list *args)
 {
 	int y = va_arg(*args, int);
 	int i = 0, j, k = 0;
-	char s[12];
+	char s[12], c, minus;
+	unsigned int l;
 
 	if (y == 0)
 	{
-		char c = '0';
-
+		c = '0';
 		write(1, &c, 1);
 		return (1);
 	}
 
 	if (y < 0)
 	{
-		char minus = '-';
-
+		minus = '-';
 		write(1, &minus, 1);
 		k++;
-		y = y * (-1);
+		l = -y;
 	}
+	else
+		l = y;
 
-	while (y > 0)
+	while (l > 0)
 	{
-		s[i] = (y % 10) + '0';
-		y = y / 10;
+		s[i] = (l % 10) + '0';
+		l = l / 10;
 		i++;
 	}
 
