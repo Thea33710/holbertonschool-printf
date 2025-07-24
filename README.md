@@ -30,9 +30,13 @@ gcc -Wall -Werror -Wextra -pedantic -std=gnu89 -Wno-format \*.c
 
 ### Commande d'execution man page :
 
+* man ./man_3_printf
+
 ---
 
 ### Organigramme :
+
+![Organigramme _printf](flowchart.png)
 
 ---
 
