@@ -36,7 +36,8 @@ gcc -Wall -Werror -Wextra -pedantic -std=gnu89 -Wno-format \*.c
 
 ### Organigramme :
 
-![Organigramme _printf](flowchart.png)
+<img width="456" height="678" alt="flowchart" src="https://github.com/user-attachments/assets/94319fb1-3ea7-4e46-a15f-b63c93720470" />
+
 
 ---
 
